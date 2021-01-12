@@ -1,14 +1,48 @@
 import React from "react";
-import useLogRender from "../../utils/useLogPath";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+} from "react-router-dom";
+import TheScene from "../../pages/TheScene";
 
-function Nav() {
-	useLogRender();
-
+export default function Nav() {
 	return (
-		<nav>
-			<h1 className='mt-0 ml-0 mb-3 text-dark p-4 pt-3 pl-3'>Express Sequelize box</h1>
-		</nav>
+		<Router>
+			<div>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<Link
+						to="/"
+						className="navbar-brand" >
+						WasteOfTime
+        </Link>
+					<div>
+						<ul className="navbar-nav">
+							<li className="nav-item">
+								<Link
+									to="/TheScene"
+									className={
+										window.location.pathname === "/" || window.location.pathname === "/TheScene"
+											? "nav-link active"
+											: "nav-link"
+									}
+								>
+									The Scene
+            </Link>
+							</li>
+							<li className="nav-item">
+								<Link
+									to="/TheChallenge"
+									className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+								>
+									The Challenge
+            </Link>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</Router>
 	);
 }
-
-export default Nav;
