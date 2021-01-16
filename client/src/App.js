@@ -11,6 +11,7 @@ import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import TheScene from "./pages/TheScene";
+import TheChallenge from "./pages/TheChallenge";
 
 // import ReactDOM from "react-dom";
 
@@ -49,6 +50,16 @@ function App() {
 					/>
 					<Route
 						exact
+						path='/TheChallenge'
+						component={TheChallenge}
+					/>
+					<Route
+						exact
+						path='/Login'
+						component={Login}
+					/>
+					<Route
+						exact
 						path='/signup'
 						render={props => (
 							<Signup
@@ -58,12 +69,12 @@ function App() {
 							/>
 						)}
 					/>
-					{/* <ProtectedRoute exact path={["/", "/comments"]}> 
-					<Comments {...userState} />*/}
-					{/* </ProtectedRoute>
-					<ProtectedRoute exact path='/comments/:id' >
+					<Route exact path={["/", "/comments"]}>
+						<Comments {...userState} />*/
+					</Route>
+					<Route exact path='/comments/:id' >
 						<Comment {...userState} />
-					</ProtectedRoute> */}
+					</Route>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>

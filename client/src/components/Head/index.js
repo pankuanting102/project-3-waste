@@ -5,44 +5,52 @@ import {
 	Route,
 	Link
 } from "react-router-dom";
-import TheScene from "../../pages/TheScene";
+
 
 export default function Nav() {
 	return (
-		<Router>
-			<div>
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
-					<Link
-						to="/"
-						className="navbar-brand" >
-						WasteOfTime
+		<div>
+			<nav className="navbar navbar-expand-lg navbar-light bg-light">
+				<Link
+					to="/"
+					className="navbar-brand" >
+					WasteOfTime
         </Link>
-					<div>
-						<ul className="navbar-nav">
-							<li className="nav-item">
-								<Link
-									to="/TheScene"
-									className={
-										window.location.pathname === "/" || window.location.pathname === "/TheScene"
-											? "nav-link active"
-											: "nav-link"
-									}
-								>
-									The Scene
+				<div>
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<Link
+								to="/TheScene"
+								className={
+									window.location.pathname === "/" || window.location.pathname === "/TheScene"
+										? "nav-link active"
+										: "nav-link"
+								}
+							>
+								The Scene
             </Link>
-							</li>
-							<li className="nav-item">
-								<Link
-									to="/TheChallenge"
-									className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-								>
-									The Challenge
+						</li>
+						<li className="nav-item">
+							<Link
+								to="/TheChallenge"
+								className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+							>
+								The Challenge
             </Link>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</Router>
+
+						</li>
+						<li className="nav-item">
+							<Link
+								to="/Login"
+								className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+							>
+								Login
+            </Link>
+
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	);
 }
