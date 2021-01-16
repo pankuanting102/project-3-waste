@@ -39,7 +39,7 @@ export default function Nav() {
             </Link>
 
 						</li>
-						<li className="nav-item mr-sm-2">
+						<li className="nav-item mr-sm-2" style={{ marginLeft: 760 }}>
 							<Link
 								to="/Login"
 								className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
