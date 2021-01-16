@@ -9,7 +9,7 @@ function Comment() {
   // When this component mounts, grab the comment with the _id of props.match.params.id
   // e.g. localhost:3000/comments/599dcb67f0f16317844583fc
   const match = useRouteMatch('/comments/:id');
-   
+
   useEffect(() => {
     API.getComment(match.params.id)
       .then(res => setComment(res.data))
@@ -17,6 +17,7 @@ function Comment() {
   }, [match.params.id])
 
   return (
+
       <Container fluid>
         <Row>
           <Col size="md-10 md-offset-1">
