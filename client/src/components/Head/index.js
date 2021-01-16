@@ -39,7 +39,7 @@ export default function Nav() {
             </Link>
 
 						</li>
-						<li className="nav-item">
+						<li className="nav-item mr-sm-2">
 							<Link
 								to="/Login"
 								className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
