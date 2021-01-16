@@ -8,22 +8,27 @@ import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Head from "./components/Head";
 import userAPI from "./utils/userAPI";
-import ProtectedRoute from "./components/ProtectedRoute"
+import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
+import TheScene from "./pages/TheScene";
+import TheChallenge from "./pages/TheChallenge";
+
+// import ReactDOM from "react-dom";
 
 function App() {
 	const [userState, setUserState] = useState({});
 
-   useEffect(() => { 
-	   // auth user on first render
-      authenticate() 
-   }, []);
+	useEffect(() => {
+		// auth user on first render
+		authenticate()
+	}, []);
 
 	//user authentication
 	function authenticate() {
 		return userAPI.authenticateUser()
 			.then(({ data }) => {
-				console.log('user:', data );
-            setUserState(data);
+				console.log('user:', data);
+				setUserState(data);
 			})
 			.catch((err) => console.log('registered user:', err.response));
 	}
@@ -36,18 +41,27 @@ function App() {
 					<Route
 						exact
 						path='/'
-						render={ props => (
-							<Login
-								{...props}
-								userState={userState}
-								setUserState={setUserState}
-							/>
-						)}
+						component={Home}
+					/>
+					<Route
+						exact
+						path='/TheScene'
+						component={TheScene}
+					/>
+					<Route
+						exact
+						path='/TheChallenge'
+						component={TheChallenge}
+					/>
+					<Route
+						exact
+						path='/Login'
+						component={Login}
 					/>
 					<Route
 						exact
 						path='/signup'
-						render={ props => (
+						render={props => (
 							<Signup
 								{...props}
 								authenticate={authenticate}
@@ -55,16 +69,16 @@ function App() {
 							/>
 						)}
 					/>
-               <ProtectedRoute exact path={["/", "/comments"]}>
-                  <Comments {...userState} />
-               </ProtectedRoute>
-               <ProtectedRoute exact path='/comments/:id' >
-                  <Comment {...userState} />
-               </ProtectedRoute>
+					<Route exact path={["/", "/comments"]}>
+						<Comments {...userState} />*/
+					</Route>
+					<Route exact path='/comments/:id' >
+						<Comment {...userState} />
+					</Route>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-         { userState.email ? <Redirect to="/comments" /> : <></>}
+			{userState.email ? <Redirect to="/comments" /> : <></>}
 		</Router>
 	);
 }
