@@ -33,25 +33,17 @@ function Comments({ username }) {
 	}, [username]);
 
 
-	// Loads all comments and sets them to comments
-	function loadComments() {
-		API.getComments()
-			.then((res) => setComments(res.data))
-			.catch((err) => console.log(err));
-	}
+	// focus on titleInputEl if ref exists
+	titleInputElRef.current.focus()
+}, [username]);
 
-	// Deletes a comment from the database with a given id, then reloads comments from the db
-	function deleteComment(id) {
-		API.deleteComment(id)
-			.then((res) => loadComments())
-			.catch((err) => console.log(err));
-	}
 
-	// Handles updating component state when the user types into the input field
-	function handleInputChange(event) {
-		const { name, value } = event.target;
-		setFormObject({ ...formObject, [name]: value });
-	}
+// Loads all comments and sets them to comments
+function loadComments() {
+	API.getComments()
+		.then((res) => setComments(res.data))
+		.catch((err) => console.log(err));
+}
 
 	// When the form is submitted, use the API.saveComment method to save the comment data
 	// Then reload comments from the database
@@ -70,7 +62,7 @@ function Comments({ username }) {
 				.catch((err) => console.log(err));
 		}
 	}
-
+}
 	return <>
 		<Row>
 			<Col size='md-12'>

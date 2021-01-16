@@ -48,7 +48,7 @@ class Signup extends Component {
       <Container fluid>
         <Row>
           <Col size="12">
- 
+
             <form>
               <Input
                 value={this.state.username}
