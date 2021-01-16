@@ -17,24 +17,25 @@ function Comment() {
   }, [match.params.id])
 
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-10 md-offset-1">
-          <article>
-            <Card heading={comment.username}>
-              {comment.body}
-            </Card>
-          </article>
-        </Col>
-      </Row>
-      <Row>
-        <Col size="md-2">
-          <Link className="text-dark" to="/comments">← Back to all comments</Link>
-        </Col>
-      </Row>
-    </Container>
-  );
-}
+
+      <Container fluid>
+        <Row>
+          <Col size="md-10 md-offset-1">
+            <article>
+              <Card heading={comment.username}>
+                  {comment.body}
+              </Card>
+            </article>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-2">
+            <Link className="text-dark" to="/comments">← Back to all comments</Link>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 
 
 export default Comment;
