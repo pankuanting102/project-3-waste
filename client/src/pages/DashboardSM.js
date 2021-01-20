@@ -3,7 +3,7 @@ import React from "react";
 const Dashboard = () =>{
 
     return (
-        
+        <>
     
             <h1>
                 Hello xxx!
@@ -22,7 +22,7 @@ const Dashboard = () =>{
                 <a href="https://twitter.com/"></a>
                 Twitter
             </button>
-    
+        </>
 
     )
 
