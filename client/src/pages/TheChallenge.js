@@ -6,6 +6,4 @@ function TheChallenge() {
     )
 };
 
-
-
 export default TheChallenge;
