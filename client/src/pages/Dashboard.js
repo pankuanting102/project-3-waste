@@ -6,6 +6,9 @@ import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
 import Scale from "../components/Scale";
+import ProgressBar from "../components/PointTimeline";
+// import Recycle from "../components/RecycleLogo";
+
 
 function Dashboard({ status, username, highScore, score }) {
 
@@ -16,10 +19,11 @@ function Dashboard({ status, username, highScore, score }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: "grey",
                 fontcolor: "white",
             }}>Hello,  {username}!</h1>
-            <Scale />
+            <ProgressBar />
+            {/* <Recycle /> */}
+
         </div>
     )
 }
