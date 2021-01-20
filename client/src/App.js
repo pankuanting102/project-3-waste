@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Comments from "./pages/Comments";
+// import Comments from "./pages/Dashboard";
 import { Container } from "./components/Grid";
-import Comment from "./pages/Comment";
+// import Comment from "./pages/Comment";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
@@ -12,6 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import TheScene from "./pages/TheScene";
 import TheChallenge from "./pages/TheChallenge";
+import Dashboard from "./pages/Dashboard";
 
 // import ReactDOM from "react-dom";
 
@@ -69,16 +70,16 @@ function App() {
 							/>
 						)}
 					/>
-					<Route exact path={["/", "/comments"]}>
-						<Comments {...userState} />*/
+					<Route exact path={["/", "/Dashboard"]}>
+						<Dashboard {...userState} />
 					</Route>
-					<Route exact path='/comments/:id' >
-						<Comment {...userState} />
+					<Route exact path='/Dashboard' >
+						<Dashboard {...userState} />
 					</Route>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-			{userState.email ? <Redirect to="/comments" /> : <></>}
+			{userState.email ? <Redirect to="/Dashboard" /> : <></>}
 		</Router>
 	);
 }
